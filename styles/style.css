@@ -96,6 +96,14 @@ ol {
   inline-size: fit-content;
 }
 
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__label:focus-visible {
+  outline: 1px solid #fff;
+}
+
 .search-form__textfield {
   inline-size: 100%;
   block-size: 27px;
@@ -110,18 +118,42 @@ ol {
   appearance: none;
 }
 
+.search-form__textfield:has(:focus-visible) {
+  outline: 1px solid #fff;
+}
+
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
 }
 
 .search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inline-size: 19px;
   block-size: 19px;
   border: 1px solid #fff;
   cursor: pointer;
   margin-right: 5px;
+}
 
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  inline-size: 15px;
+  block-size: 15px;
+  background-color: #fff;
+}
+
+.search-form__pseudo-checkbox:has(:focus-visible) {
+  outline: 1px solid #fff;
+}
+
+.search-form__label-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-position: under;
 }
 
 .button {
@@ -134,14 +166,28 @@ ol {
   border: 1px solid #fff;
 }
 
+.button:active {
+  background-color: #545050;
+}
+
+.button:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+}
+
 .search-form__submit-button {
   align-self: self-end;
   block-size: 34px;
   padding: 6px 73.5px;
 }
-
-
-
 
 .content__details {
   align-self: flex-end;
@@ -168,18 +214,36 @@ ol {
   overflow-y: auto;
 }
 
-/* Есть в задании, но нет в макете */
 .content__list-item:not(:nth-last-child(2)) {
   margin-block-end: 30px;
 }
 
-/* .content__list::-webkit-scrollbar {
-  display: none;
-} */
-
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #fff;
+  margin: 2px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .content__video-card-title {
@@ -202,6 +266,7 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 16.2px;
+  inline-size: 200px;
 }
 
 .content__video-card {
@@ -209,6 +274,7 @@ ol {
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
+  inline-size: 194px;
 }
 
 .content__video-card-thumbnail {
