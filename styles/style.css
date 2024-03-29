@@ -9,7 +9,7 @@ html {
 }
 
 .page {
-  inline-size: 1200px;
+  inline-size: 1210px;
   block-size: 100%;
   margin: auto;
   color: #fff;
@@ -37,6 +37,10 @@ ol {
   list-style: none;
 }
 
+input {
+  appearance: none;
+}
+
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -59,25 +63,29 @@ ol {
 
 .result {
   align-self: flex-end;
-  inline-size: 59.25%;
+  inline-size: 58.95%;
+}
+
+.result__video-container {
+  position: relative;
+  inline-size: 711px;
+  block-size: 386px;
+  margin-block-end: 16px;
 }
 
 .result__video {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-}
-
-.result__video-container {
-  position: relative;
-  inline-size: 100%;
-  margin-block-end: 16px;
+  object-position: center;
 }
 
 .search-form {
   display: flex;
   justify-content: space-between;
-  align-self: start;
+  row-gap: 40px;
+  align-items: start;
+  margin-inline-start: 2px;
 }
 
 .search-form__fieldset {
@@ -98,28 +106,33 @@ ol {
 
 .search-form__label:focus {
   outline: none;
+  border: none;
 }
 
-.search-form__label:focus-visible {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__textfield {
-  inline-size: 100%;
+  appearance: none;
+  inline-size: 225px;
   block-size: 27px;
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  color: rgb(255 255 255 / 0.6);
+  color: inherit;
   background-color: transparent;
   border: none;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  appearance: none;
+  border-block: 1px solid #fff;
 }
 
-.search-form__textfield:has(:focus-visible) {
-  outline: 1px solid #fff;
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.6);
+}
+
+.search-form__textfield:focus {
+  outline: none;
 }
 
 .search-form__checkbox-list {
@@ -135,7 +148,7 @@ ol {
   block-size: 19px;
   border: 1px solid #fff;
   cursor: pointer;
-  margin-right: 5px;
+  margin-inline-end: 5px;
 }
 
 input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
@@ -150,7 +163,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   outline: 1px solid #fff;
 }
 
-.search-form__label-text:hover {
+.search-form__label:has(.search-form__pseudo-checkbox):hover {
   cursor: pointer;
   text-decoration: underline;
   text-underline-position: under;
@@ -158,10 +171,11 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 
 .button {
   cursor: pointer;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
-  color: #fff;
+  color: inherit;
   background-color: transparent;
   border: 1px solid #fff;
 }
@@ -186,12 +200,12 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 .search-form__submit-button {
   align-self: self-end;
   block-size: 34px;
-  padding: 6px 73.5px;
+  padding: 5px 72px;
 }
 
 .content__details {
   align-self: flex-end;
-  inline-size: 33.25%;
+  inline-size: 34.25%;
 }
 
 .title {
@@ -199,8 +213,9 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   font-size: 75px;
   font-weight: 700;
   line-height: 94%;
-  margin-block-end: 26px;
+  margin-block-end: 22px;
   text-transform: uppercase;
+  margin-block-start: 2px;
 }
 
 .content__accent {
@@ -209,12 +224,14 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 
 .content__list {
   position: relative;
-  max-block-size: 298px;
+  inline-size: 399px;
+  block-size: 298px;
   margin-block-start: auto;
   overflow-y: auto;
+  scrollbar-gutter: auto;
 }
 
-.content__list-item:not(:nth-last-child(2)) {
+.content__list-item:not(:last-child) {
   margin-block-end: 30px;
 }
 
@@ -257,7 +274,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 }
 
 .content__video-card-description-container {
-  inline-size: 200px;
+  inline-size: 100%;
   flex-grow: 1;
 }
 
@@ -274,20 +291,17 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
-  inline-size: 194px;
+  inline-size: 200px;
 }
 
 .content__video-card-thumbnail {
   inline-size: 194px;
-  block-size: 103px;
   object-fit: cover;
-}
-
-.content__video-card-description-container {
-  inline-size: 100%;
+  object-position: center;
 }
 
 .more-button {
+  inline-size: 100%;
   block-size: 34px;
-  padding: 6px 127.5px;
+  padding: 6px 135.5px;
 }
