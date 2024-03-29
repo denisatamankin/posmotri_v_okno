@@ -227,6 +227,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   inline-size: 399px;
   block-size: 298px;
   margin-block-start: auto;
+  overflow-x: hidden;
   overflow-y: auto;
   scrollbar-gutter: auto;
 }
